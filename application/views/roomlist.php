@@ -34,7 +34,7 @@
             return;
         }
 
-        var ajax_url = "http://localhost/GedungSekolah/Ajax/getList/" + lt1 + "/" + lt2 + "/" + lt3 + "/" + fs1 + "/" + fs2;
+        var ajax_url = "<?= base_url('/Ajax/getList/') ?>" + lt1 + "/" + lt2 + "/" + lt3 + "/" + fs1 + "/" + fs2;
 
         var req = new XMLHttpRequest();
         req.open('GET', ajax_url, true);
@@ -111,7 +111,7 @@
 
                 <script>
                     window.onload = function() {
-                        var ajax_url = "http://localhost/GedungSekolah/Ajax/getList/y/y/y/n/n";
+                        var ajax_url = "<?= base_url('/Ajax/getList/y/y/y/n/n') ?>";
 
                         var req = new XMLHttpRequest();
                         req.open('GET', ajax_url, true);

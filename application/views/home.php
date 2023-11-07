@@ -26,7 +26,8 @@
                 <!-- Loop for Rooms -->
                 <?php foreach ($listRoom as $room) { ?>
                     <div class="col-md-4 col-sm-6 wow fadeInUp" data-wow-duration="200ms" data-wow-delay="0ms">
-                        <a href="" style="text-decoration: none; color: black;">
+                        <a href="<?= base_url('main/book/').$room->no ?>" style="text-decoration: none; color: black;" <?php if($room->status == 'UNAVAILABLE'){ echo $disabled; } ?>>
+
                             <div class="media service-box">
                                 <div class="pull-left">
                                     <i style="padding-right: 65px;"><?= substr($room->id, 3, 3) ?></i>

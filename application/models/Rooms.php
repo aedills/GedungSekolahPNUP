@@ -33,4 +33,14 @@ class Rooms extends CI_Model {
         }
         return $x[0];
     }
+
+    public function getDosen($id){
+        $this->db->select('*');
+        $this->db->from('dosen');
+        if($id != null OR $id > 0){
+            $this->db->where('id', $id);
+        }
+        $data = $this->db->get()->result();
+        return $data;
+    }
 }

@@ -19,7 +19,8 @@
 				</div>
 				<div>
 					<div class="contact-form">
-						<form id="main-contact-form" method="post" action="#">
+						<form id="main-contact-form" method="post" action="<?= base_url('main/doBooking') ?>">
+							<input type="text" hidden value="<?= $roomdata->id ?>" name="room_id">
 							<!-- Nama -->
 							<div class="form-group">
 								<input type="text" name="nama" class="form-control" placeholder="Nama" value="<?= $this->session->userdata['auth_data']['nama'] ?>" required>
@@ -64,7 +65,14 @@
 
 							<!-- Nama Dosen -->
 							<div class="form-group">
-								<input type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen" required>
+								<!-- <input type="text" name="nama_dosen" class="form-control" placeholder="Nama Dosen" required> -->
+								<select class="form-control" id="sel1" name="id_dosen">
+									<option selected disabled hidden>Nama Dosen</option>
+									<!-- <option>1</option> -->
+									<?php foreach($dosen as $d) { ?>
+									<option value="<?=$d->id?>"><?=$d->nama?></option>
+									<?php } ?>
+								</select>
 							</div>
 
 							<!-- Mata Kuliah -->
@@ -87,16 +95,16 @@
 							</style>
 
 							<script>
-								var h_input = document.getElementById("h_input");
-								h_input.addEventListener("input", function() {
-									var value = parseInt(h_input.value);
+								// var h_input = document.getElementById("h_input");
+								// h_input.addEventListener("input", function() {
+								// 	var value = parseInt(h_input.value);
 
-									if (value < h_input.min) {
-										h_input.value = h_input.min;
-									} else if (value > h_input.max) {
-										h_input.value = h_input.max;
-									}
-								});
+								// 	if (value < h_input.min) {
+								// 		h_input.value = h_input.min;
+								// 	} else if (value > h_input.max) {
+								// 		h_input.value = h_input.max;
+								// 	}
+								// });
 
 								var m_input = document.getElementById("m_input");
 								m_input.addEventListener("input", function() {

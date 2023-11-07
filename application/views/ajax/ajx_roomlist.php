@@ -16,10 +16,10 @@
                     <p class="media-body-text <?= strtolower($room->status) ?>"><i class="<?php if ($room->status == 'AVAILABLE') { echo $status['available']; } else { echo $status['unavailable']; } ?>"> <?= $room->status ?></i></p>
                     <div class="row">
                         <div class="col-md-6">
-                            <p class="media-body-text">Informasi2</p>
+                            <!-- <p class="media-body-text"><?php if($room->ac == 1){ echo 'AC'; } ?></p> -->
                         </div>
                         <div class="col-md-6">
-                            <p class="media-body-text">Informasi3</p>
+                            <!-- <p class="media-body-text"><?php if($room->monitor == 1){ echo 'Monitor'; } ?></p> -->
                         </div>
                     </div>
 

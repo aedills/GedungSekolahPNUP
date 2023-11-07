@@ -13,7 +13,8 @@ class Auth extends CI_Controller {
             redirect('');
         }
         else{
-            $this->load->view('components/head');
+            $head['title']= 'Login';
+            $this->load->view('components/head', $head);
             $this->load->view('auth/login');
         }
     }
@@ -24,7 +25,8 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('p', 'p', 'trim|required');
         
         if ($this->form_validation->run() ==  false) {
-            $this->load->view('components/head');
+		    $head['title']= 'Booking';
+            $this->load->view('components/head', $head);
             $this->load->view('auth/login');
         } else {
             $this->_login();
@@ -62,7 +64,8 @@ class Auth extends CI_Controller {
 
     // Set new pass viewform
     public function setpass(){
-        $this->load->view('components/head');
+		$head['title']= 'Buat Sandi Baru';
+        $this->load->view('components/head', $head);
         $this->load->view('auth/newpass');
     }
 
@@ -70,10 +73,12 @@ class Auth extends CI_Controller {
         $this->form_validation->set_rules('p', 'p', 'required|trim|min_length[8]', ['min_length' => 'Password terlalu pendek, buat minimal 8 karakter.']);
 
         if ($this->form_validation->run() ==  false) {
-            $this->load->view('components/head');
+		    $head['title']= 'Buat Sandi Baru';
+            $this->load->view('components/head', $head);
             $this->load->view('auth/newpass');
         } else {
             $this->_updatepass();
+            redirect('');
         }
     }
 
@@ -90,7 +95,6 @@ class Auth extends CI_Controller {
 
         $user = $this->db->get_where('mahasiswa', ['nim' => $nim])->row_array();
         $this->session->set_userdata('auth_data', $user);
-        redirect('');
     }
 
 

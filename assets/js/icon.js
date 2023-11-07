@@ -1,5 +1,5 @@
-const darkIcon = "http://localhost/GedungSekolah/images/icon/mygs.png";
-const lightIcon = "http://localhost/GedungSekolah/images/icon/mygs-black.png";
+const darkIcon = "http://localhost/GedungSekolahPNUP/images/icon/mygs.png";
+const lightIcon = "http://localhost/GedungSekolahPNUP/images/icon/mygs-black.png";
 
 const setIcon = () => {
     const icon = document.querySelector('link[rel="icon"]');
